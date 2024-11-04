@@ -1,8 +1,8 @@
 export interface SyllogismSettings {
-	propositionPrefix: string;
-	conclusionPrefix: string;
+	displayPrefixes: boolean;
+	typeseparator: string;
 }
 export const DEFAULT_SETTINGS: SyllogismSettings = {
-	propositionPrefix: 'P',
-	conclusionPrefix: 'C'
+	displayPrefixes: true,
+	typeseparator: ":",
 };

@@ -1,37 +1,35 @@
+import { Divider, Line, LinePair, Syllogism } from "Syllogism";
+
 class SyllogismParser {
-    parseAndGenerateSyllogismTable(input: string): Promise<string> {
-        const rows: string[] = [];
-        let intro = ""; 
-        let conclusion = ""; 
+    parse(codeblock_content: string): Promise<Syllogism> {
+        let syllogism: Syllogism = new Syllogism();
+        // Define regex patterns
+        const linePairPattern = /([a-zA-Z]\d*):\s(.+)/;
+        const dividerPattern = /--\s*(KS\([^()]+\))\s*--/;
 
-        const lines = input.split("\n").map(line => line.trim());
-        lines.forEach(line => {
-            if (line.startsWith("P")) {
-                // Add premise
-                rows.push(`
-					<tr style="border: none;">
-						<td style="border: none;"></td>
-						<td style="border: none;">${line.substring(3).trim()}</td>
-					</tr>
-				`);
-            } else if (line.startsWith("S:")) {
-                intro = line.substring(2).trim();
-            } else if (line.startsWith("C:")) {
-                conclusion = line.substring(2).trim();
+        // Split input into lines
+        const lines = codeblock_content.split('\n').map(line => line.trim()).filter(line => line);
+
+        for (const line of lines) {
+            let match;
+
+            // Check if the line matches the LinePair pattern
+            if ((match = line.match(linePairPattern))) {
+                const type = match[1];  // e.g., "P1"
+                const text = match[2];  // Sentence following "P1:"
+                syllogism.lines.push(new LinePair(type, text));
             }
-        });
-
-        return Promise.resolve(`
-            <table style="border: none;">
-                <tbody style="border: none;">
-                    ${rows.join("")}
-                    <tr style="border: none;">
-                        <td style="padding-right:1em; font-style:italic; border: none;">${intro}</td>
-                        <td style="border: none; border-top: 2px solid; padding-top: 0.5em;">${conclusion}</td>
-                    </tr>
-                </tbody>
-            </table>
-        `);
+            // Check if the line matches the Divider pattern
+            else if ((match = line.match(dividerPattern))) {
+                const conclusionPrinciple = match[1];  // e.g., "KS(P1, P2)"
+                syllogism.lines.push(new Divider(conclusionPrinciple));
+            }
+            // Any other line type can be handled here if needed
+            else {
+                syllogism.lines.push(new Line("Unknown", line));
+            }
+        }
+        return Promise.resolve(syllogism);
     }
 }
 
