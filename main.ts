@@ -8,14 +8,16 @@ export default class Syllogism extends Plugin {
 	settings: SyllogismSettings;
 
 	async onload() {
-		await this.loadSettings();
+		this.loadSettings();
 		this.addSettingTab(new SyllogismSettingsTab(this.app, this));
-		this.registerMarkdownCodeBlockProcessor("syllogism", this.codeProcessor);
+		this.registerMarkdownCodeBlockProcessor("syllogism", async (source, el, ctx) => {
+			await this.codeProcessor(source, el, ctx, this.settings);
+		});
 	}
 
-	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext) {
+	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext, settings: SyllogismSettings) {
 		const parser = new SyllogismParser();
-		const renderer = new SyllogismRenderer();
+		const renderer = new SyllogismRenderer(settings);
 
 		var rows = await parser.parse(source);
 		var table = await renderer.renderTable(rows);

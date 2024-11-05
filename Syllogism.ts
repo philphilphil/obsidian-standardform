@@ -1,5 +1,5 @@
 class Syllogism {
-    lines: Line[] = [];
+    lines: Element[] = [];
     // for now i think i like a more flexible and dynamic approach and dont force it into classes
     // premisses: string[];
     // conclusion: string;
@@ -10,7 +10,7 @@ class Syllogism {
     // }
 }
 
-class Line { 
+class Element { 
     text: string;
     type: string;
 
@@ -20,10 +20,10 @@ class Line {
     }
 }
 
-class LinePair extends Line {
+class Argument extends Element {
 }
 
-class Divider extends Line {
+class ConclusionDivider extends Element {
     conclusionPrinciple: string;
     constructor(conclusionPrinciple: string) {
         super("", "");
@@ -31,4 +31,4 @@ class Divider extends Line {
     }
 }
 
-export { Syllogism, Line, LinePair, Divider };
+export { Syllogism, Element as Line, Argument as LinePair, ConclusionDivider as Divider };

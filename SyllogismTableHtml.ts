@@ -1,6 +1,6 @@
 export class SyllogismTableHtml {
-    static readonly TABLE_HEAD = 
-    `
+    static readonly TABLE_HEAD =
+        `
     <style>
         .block-language-syllogism table {
             border-collapse: collapse;
@@ -9,6 +9,7 @@ export class SyllogismTableHtml {
         }
 
         .block-language-syllogism td {
+            border: 0;
             padding: 0;
             margin: 0;
         }
