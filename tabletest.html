@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solipsism Table</title>
+    <style>
+        .syllogismTable {
+            border-collapse: collapse;
+        }
+
+        .syllogismTable td {
+            padding-right: 10px;
+        }
+
+        /* For debugging */
+        /* table,
+        th,
+        td {
+            border: 1px solid black;
+        } */
+
+        .conclusion {
+            display: grid;
+            grid-template-columns: 30px max-content 30px;
+            grid-column-gap: 5px;
+            align-items: center;
+        }
+
+        .conclusion::before,
+        .conclusion::after {
+            content: "";
+            display: block;
+            height: 1.5px;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="syllogismTable">
+        <tr>
+            <td>P1.</td>
+            <td>Für alle x gilt: x ist Solipsist:in genau dann, wenn x glaubt, dass es nichts außer x’ eigenem
+                Bewusstsein gibt.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="conclusion">S (P1)</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Z1.</td>
+            <td>Ich bin genau dann Solipsist:in, wenn ich glaube, dass es nichts außer meinem eigenen Bewusstsein gibt.
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="conclusion">B (Z1)</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Z2.</td>
+            <td class="indented">Wenn ich Solipsist:in bin, dann glaube ich, dass es nichts außer meinem eigenen
+                Bewusstsein gibt.</td>
+        </tr>
+        <tr>
+            <td>P2.</td>
+            <td>Wenn ich glaube, dass es nichts außer meinem eigenen Bewusstsein gibt, dann glaube ich nicht, dass
+                andere existieren, die dieses Buch lesen könnten.</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="conclusion">KS (Z2, P2)</div>
+            </td>
+        </tr>
+        <tr>
+            <td>K.</td>
+            <td>Wenn ich Solipsist:in bin, dann glaube ich nicht, dass andere existieren, die dieses Buch lesen könnten.
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
