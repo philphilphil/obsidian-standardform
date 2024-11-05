@@ -1,4 +1,4 @@
-import { Divider, LinePair, Syllogism } from "Syllogism";
+import { Argument, ConclusionDivider, Syllogism } from "Syllogism";
 import { SyllogismSettings } from "SyllogismSettings";
 import { SyllogismTableHtml } from "SyllogismTableHtml";
 
@@ -16,13 +16,13 @@ class SyllogismRenderer {
         for (const line of syllogism.lines) {
             htmlOutput += "<tr>";
 
-            if (line instanceof LinePair) {
+            if (line instanceof Argument) {
                 if (this.settings.displayPrefixes)
                     htmlOutput += `<td>${line.type}</td>`;
 
                 htmlOutput += `<td>${line.text}</td>  
                                </tr>`;
-            } else if (line instanceof Divider) {
+            } else if (line instanceof ConclusionDivider) {
                 if (this.settings.displayPrefixes)
                     htmlOutput += "<td></td>";
 
