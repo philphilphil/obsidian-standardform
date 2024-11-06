@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-syllogism",
-	"name": "Syllogism",
+	"id": "obsidian-standardform",
+	"name": "StandardForm",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Transforms code blocks with Standard Form logical syntax into clean, styled renderings. Perfect for philosophy, logic, and argument reconstructions.",
 	"author": "Phil Baum",
-	"authorUrl": "https://github.com/philphilphil/obsidian-syllogism",
+	"authorUrl": "https://github.com/philphilphil/obsidian-standardform",
 	"isDesktopOnly": false
 }
