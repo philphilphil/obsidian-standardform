@@ -1,5 +1,5 @@
 # StandardForm
-A plugin for Obsidian that transforms code blocks with logical Standard Form syntax into clean, styled renderings, enhancing readability of logical reconstructions with customizable formatting. 
+A plugin for Obsidian that transforms code blocks with logical Standard Form syntax into clean, styled renderings, enhancing readability of logical reconstructions. 
 Perfect for philosophy, logic, and formal notation.
 
 ## Demo
