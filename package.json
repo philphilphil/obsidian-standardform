@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-standardform",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Transforms code blocks with Standard Form logical syntax into clean, styled renderings. Perfect for philosophy, logic, and argument reconstructions.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
