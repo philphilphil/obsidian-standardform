@@ -3,6 +3,8 @@ A plugin for Obsidian that transforms code blocks with logical Standard Form syn
 Perfect for philosophy, logic, and formal notation.
 
 ## Demo
+![Demo showing rendered code blocks](demo.png)
+
 ## Usage
 To enable parsing, code blocks have to be specified as "standardform" language.
 ````markdown
