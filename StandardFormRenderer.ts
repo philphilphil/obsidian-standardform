@@ -1,11 +1,10 @@
 import { Argument, ConclusionDivider, StandardFormConstruction } from "StandardFormConstruction";
-import { StandardFormTableHtml } from "StandardFormTableHtml";
 
 class SyllogismRenderer {
 
 
     renderTable(construction: StandardFormConstruction): Promise<string> {
-        let htmlOutput = StandardFormTableHtml.TABLE_HEAD;
+        let htmlOutput = "<table>";
 
         let anyLabel = construction.elements.some(e => e.label !== "");
 
@@ -33,7 +32,8 @@ class SyllogismRenderer {
                 }
             }
         }
-        return Promise.resolve(htmlOutput + StandardFormTableHtml.TABLE_TAIL);
+
+        return Promise.resolve(htmlOutput + "</table>");
     }
 }
 
