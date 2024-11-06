@@ -12,7 +12,7 @@ P2: If someone prefers tools that support Markdown, then they enjoy using Obsidi
  -- CI (P1, P2) --
 IC: If someone is a programmer, then they enjoy using Obsidian.
 P3: Phil is a programmer.
--- MP (C1, P3) --
+-- MP (IC, P3) --
 C: Phil enjoys using Obsidian.
 ```
 ````
