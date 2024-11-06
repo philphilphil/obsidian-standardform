@@ -16,19 +16,16 @@ class SyllogismRenderer {
                     htmlOutput += `<td>${el.label ?? ''}</td>`;
                 }
 
-                htmlOutput += `<td>${el.text}</td>  
-                               </tr>`;
+                htmlOutput += `<td>${el.text}</td></tr>`;
             } else if (el instanceof ConclusionDivider) {
                 if (anyLabel) {
                     htmlOutput += "<td></td>";
                 }
 
                 if (el.strokeOnly) {
-                    htmlOutput += `<td><div class="conclusionLong"></div></td>
-                    </tr>`;
+                    htmlOutput += `<td><div class="conclusionLong"></div></td></tr>`;
                 } else {
-                    htmlOutput += `<td><div class="conclusion">${el.conclusionPrinciple}</div></td>
-                               </tr>`;
+                    htmlOutput += `<td><div class="conclusion">${el.conclusionPrinciple}</div></td></tr>`;
                 }
             }
         }
