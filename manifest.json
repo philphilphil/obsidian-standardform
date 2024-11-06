@@ -3,7 +3,7 @@
 	"name": "Syllogism",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Renders syllogism tables out of code blocks.",
+	"description": "Transforms code blocks with Standard Form logical syntax into clean, styled renderings. Perfect for philosophy, logic, and argument reconstructions.",
 	"author": "Phil Baum",
 	"authorUrl": "https://github.com/philphilphil/obsidian-syllogism",
 	"isDesktopOnly": false

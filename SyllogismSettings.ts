@@ -1,8 +1,11 @@
 export interface SyllogismSettings {
 	displayPrefixes: boolean;
-	typeseparator: string;
+	typeDefinitionSeparator: string;
+	typeDisplaySeparator: string;
+
 }
 export const DEFAULT_SETTINGS: SyllogismSettings = {
 	displayPrefixes: true,
-	typeseparator: ":",
+	typeDefinitionSeparator: ":",
+	typeDisplaySeparator: ".",
 };

@@ -15,13 +15,23 @@ export class SyllogismSettingsTab extends PluginSettingTab {
 		containerEl.empty();
 
 		new Setting(containerEl)
-			.setName('Type Separator')
-			.setDesc('The separator between the type and the text. eg. P1":" or P1" - "')
+			.setName('Parsing Element Definition Seperator')
+			.setDesc('The separator between the premmise, conclusion, etc and the text.  eg. P1":" or P1" - "')
 			.addText(text => text
 				.setPlaceholder(':')
-				.setValue(this.plugin.settings.typeseparator)
+				.setValue(this.plugin.settings.typeDefinitionSeparator)
 				.onChange(async (value) => {
-					this.plugin.settings.typeseparator = value;
+					this.plugin.settings.typeDefinitionSeparator = value;
+					await this.plugin.saveSettings();
+				}));
+		new Setting(containerEl)
+			.setName('Display Element Definition Seperator')
+			.setDesc('The separator between the premmise, conclusion, etc and the text.  eg. P1":" or P1"."')
+			.addText(text => text
+				.setPlaceholder('.')
+				.setValue(this.plugin.settings.typeDisplaySeparator)
+				.onChange(async (value) => {
+					this.plugin.settings.typeDisplaySeparator = value;
 					await this.plugin.saveSettings();
 				}));
 		new Setting(containerEl)

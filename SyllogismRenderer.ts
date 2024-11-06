@@ -5,7 +5,6 @@ import { SyllogismTableHtml } from "SyllogismTableHtml";
 class SyllogismRenderer {
     settings: SyllogismSettings
 
-
     constructor(settings: SyllogismSettings) {
         this.settings = settings;
     }
@@ -18,7 +17,7 @@ class SyllogismRenderer {
 
             if (line instanceof Argument) {
                 if (this.settings.displayPrefixes)
-                    htmlOutput += `<td>${line.type}</td>`;
+                    htmlOutput += `<td>${line.type}${this.settings.typeDisplaySeparator}</td>`;
 
                 htmlOutput += `<td>${line.text}</td>  
                                </tr>`;
@@ -26,7 +25,7 @@ class SyllogismRenderer {
                 if (this.settings.displayPrefixes)
                     htmlOutput += "<td></td>";
 
-                htmlOutput += `<td><div class="conclusion"> ${line.conclusionPrinciple} </div></td>
+                htmlOutput += `<td><div class="conclusion">${line.conclusionPrinciple}</div></td>
                                </tr>`;
             }
         }

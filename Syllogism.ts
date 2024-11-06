@@ -18,6 +18,7 @@ class Argument extends Element {
 
 class ConclusionDivider extends Element {
     conclusionPrinciple: string;
+    strokeOnly: boolean = false;
     constructor(conclusionPrinciple: string) {
         super("", "");
         this.conclusionPrinciple = conclusionPrinciple;

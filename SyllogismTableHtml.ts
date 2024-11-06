@@ -9,8 +9,9 @@ export class SyllogismTableHtml {
         }
 
         .block-language-syllogism td {
+            min-width: 25px;
             border: 0;
-            padding: 0;
+            padding: 2px;
             margin: 0;
         }
 

@@ -16,7 +16,7 @@ export default class Syllogism extends Plugin {
 	}
 
 	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext, settings: SyllogismSettings) {
-		const parser = new SyllogismParser();
+		const parser = new SyllogismParser(settings);
 		const renderer = new SyllogismRenderer(settings);
 
 		var rows = await parser.parse(source);
