@@ -1,23 +1,18 @@
 import { Editor, MarkdownPostProcessorContext, MarkdownRenderChild, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
-import { SyllogismSettingsTab } from 'SyllogismSettingsTab';
-import { SyllogismSettings, DEFAULT_SETTINGS } from 'SyllogismSettings';
-import SyllogismParser from 'SyllogismParser';
-import SyllogismRenderer from 'SyllogismRenderer';
+import StandardFormParser from 'StandardFormParser';
+import StandardFormRenderer from 'StandardFormRenderer';
 
 export default class Syllogism extends Plugin {
-	settings: SyllogismSettings;
 
 	async onload() {
-		this.loadSettings();
-		this.addSettingTab(new SyllogismSettingsTab(this.app, this));
-		this.registerMarkdownCodeBlockProcessor("syllogism", async (source, el, ctx) => {
-			await this.codeProcessor(source, el, ctx, this.settings);
+		this.registerMarkdownCodeBlockProcessor("standardform", async (source, el, ctx) => {
+			await this.codeProcessor(source, el, ctx);
 		});
 	}
 
-	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext, settings: SyllogismSettings) {
-		const parser = new SyllogismParser(settings);
-		const renderer = new SyllogismRenderer(settings);
+	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext) {
+		const parser = new StandardFormParser();
+		const renderer = new StandardFormRenderer();
 
 		var rows = await parser.parse(source);
 		var table = await renderer.renderTable(rows);
@@ -25,13 +20,5 @@ export default class Syllogism extends Plugin {
 		var renderChild = new MarkdownRenderChild(el);
 		renderChild.containerEl.innerHTML = table;
 		ctx.addChild(renderChild);
-	}
-
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
-
-	async saveSettings() {
-		await this.saveData(this.settings);
 	}
 }
