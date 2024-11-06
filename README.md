@@ -26,7 +26,7 @@ not p
 ```
 ````
 ### Format
-- Identifiers must end with either a colon or a period, such as `P1:`, `C1.`, or `Something:`.
+- Identifiers must end with either a colon (`:`) or a period (`.`), such as `P1:`, `C1.`, or `Something:`.
 - Identifiers can be ommited.
 - Conclusion lines can be written either as `-- any text --` or simply `--` to create a line without text.
 - Comments can be added by starting a line with a `#`, for example: `# a simple comment`.
