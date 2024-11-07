@@ -5,6 +5,6 @@
 	"minAppVersion": "0.15.0",
 	"description": "Transforms code blocks with Standard Form logical syntax into clean, styled renderings. Perfect for philosophy, logic, and argument reconstructions.",
 	"author": "Phil Baum",
-	"authorUrl": "https://github.com/philphilphil/obsidian-standardform",
+	"authorUrl": "https://phib.io",
 	"isDesktopOnly": false
 }
