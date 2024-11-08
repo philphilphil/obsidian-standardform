@@ -1,6 +1,6 @@
 import { Editor, MarkdownPostProcessorContext, MarkdownRenderChild, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
 import StandardFormParser from 'StandardFormParser';
-import StandardFormRenderer from 'StandardFormRenderer';
+import StandardFormElement from 'StandardFormElement';
 
 export default class Syllogism extends Plugin {
 
@@ -12,13 +12,8 @@ export default class Syllogism extends Plugin {
 
 	async codeProcessor(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext) {
 		const parser = new StandardFormParser();
-		const renderer = new StandardFormRenderer();
+		let elements = await parser.parse(source);
 
-		let rows = await parser.parse(source);
-		let table = await renderer.renderTable(rows);
-
-		let renderChild = new MarkdownRenderChild(el);
-		renderChild.containerEl.innerHTML = table;
-		ctx.addChild(renderChild);
+		ctx.addChild(new StandardFormElement(el, elements));
 	}
 }
