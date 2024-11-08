@@ -8,7 +8,7 @@ class StandardFormParser {
     parse(codeblock_content: string): Promise<StandardFormConstruction> {
         let sfc: StandardFormConstruction = new StandardFormConstruction();
 
-        const lines = codeblock_content.split('\n').map(line => line.trim()).filter(line => line);
+        const lines = codeblock_content.split('\n').map(line => line.trim());
 
         for (const line of lines) {
             let match;
@@ -24,7 +24,7 @@ class StandardFormParser {
             } else if ((match = line.match(this.premissePattern))) {
                 const type = match[1] ?? "";  // eg. "P1:"
                 const text = match[2];  // Sentence following "P1:"
-                console.log(`Matched premisse: ${type} ${text}`);
+                //console.log(`Matched premisse: ${type} ${text}`);
 
                 sfc.elements.push(new Argument(type, text));
             }

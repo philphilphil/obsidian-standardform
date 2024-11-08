@@ -14,8 +14,7 @@ class StandardFormElement extends MarkdownRenderChild {
     }
 
     renderTable() {
-        let standardform = this.el;
-        let table = standardform.createEl("table");
+        let table = this.el.createEl("table");
         let anyLabel = this.construction.elements.some(e => e.label !== "");
 
         for (const el of this.construction.elements) {
