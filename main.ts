@@ -14,10 +14,10 @@ export default class Syllogism extends Plugin {
 		const parser = new StandardFormParser();
 		const renderer = new StandardFormRenderer();
 
-		var rows = await parser.parse(source);
-		var table = await renderer.renderTable(rows);
+		let rows = await parser.parse(source);
+		let table = await renderer.renderTable(rows);
 
-		var renderChild = new MarkdownRenderChild(el);
+		let renderChild = new MarkdownRenderChild(el);
 		renderChild.containerEl.innerHTML = table;
 		ctx.addChild(renderChild);
 	}
