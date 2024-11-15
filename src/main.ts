@@ -1,6 +1,6 @@
 import { Editor, MarkdownPostProcessorContext, MarkdownRenderChild, MarkdownView, Modal, Notice, Plugin } from 'obsidian';
-import StandardFormParser from 'StandardFormParser';
-import StandardFormElement from 'StandardFormElement';
+import StandardFormParser from './StandardFormParser';
+import StandardFormElement from './StandardFormElement';
 
 export default class Syllogism extends Plugin {
 

@@ -1,5 +1,5 @@
 import { MarkdownRenderChild } from "obsidian";
-import { Argument, ConclusionDivider, StandardFormConstruction } from "StandardFormConstruction";
+import { Argument, ConclusionDivider, StandardFormConstruction } from "./StandardFormConstruction";
 
 class StandardFormElement extends MarkdownRenderChild {
     constructor(

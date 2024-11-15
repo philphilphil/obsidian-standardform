@@ -1,4 +1,4 @@
-import { Argument, ConclusionDivider, StandardFormConstruction } from "StandardFormConstruction";
+import { Argument, ConclusionDivider, StandardFormConstruction } from "./StandardFormConstruction";
 
 
 class StandardFormParser {
