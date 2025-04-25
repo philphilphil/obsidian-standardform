@@ -6,7 +6,7 @@ class StandardFormParser {
     readonly dividerPattern = /--\s*(.*?)\s*--/;
 
     parse(codeblock_content: string): Promise<StandardFormConstruction> {
-        let sfc: StandardFormConstruction = new StandardFormConstruction();
+        const sfc: StandardFormConstruction = new StandardFormConstruction();
 
         const lines = codeblock_content.split('\n').map(line => line.trim());
 
@@ -20,7 +20,7 @@ class StandardFormParser {
                 const conclusionPrinciple = match[1];  // eg "KS(P1, P2)"
                 //console.log(`Matched divider: ${match[1]}`);
 
-                sfc.elements.push(new ConclusionDivider(conclusionPrinciple));
+                sfc.elements.push(new ConclusionDivider(conclusionPrinciple, false));
             } else if ((match = line.match(this.premissePattern))) {
                 const type = match[1] ?? "";  // eg. "P1:"
                 const text = match[2];  // Sentence following "P1:"

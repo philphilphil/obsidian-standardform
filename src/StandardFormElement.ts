@@ -14,11 +14,11 @@ class StandardFormElement extends MarkdownRenderChild {
     }
 
     renderTable() {
-        let table = this.el.createEl("table");
-        let anyLabel = this.construction.elements.some(e => e.label !== "");
+        const table = this.el.createEl("table");
+        const anyLabel = this.construction.elements.some(e => e.label !== "");
 
         for (const el of this.construction.elements) {
-            let tr = table.createEl("tr");
+            const tr = table.createEl("tr");
 
             if (el instanceof Argument) {
                 if (anyLabel) {
@@ -32,10 +32,10 @@ class StandardFormElement extends MarkdownRenderChild {
                 }
 
                 if (el.strokeOnly) {
-                    let td = tr.createEl("td");
+                    const td = tr.createEl("td");
                     td.createDiv({ cls: "conclusionLong" });
                 } else {
-                    let td = tr.createEl("td");
+                    const td = tr.createEl("td");
                     td.createDiv({ text: el.conclusionPrinciple, cls: "conclusion" });
                 }
             }

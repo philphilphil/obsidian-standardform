@@ -18,8 +18,8 @@ class Argument extends Element {
 
 class ConclusionDivider extends Element {
     conclusionPrinciple: string;
-    strokeOnly: boolean = false;
-    constructor(conclusionPrinciple: string, strokeOnly: boolean = false) {
+    strokeOnly: boolean ;
+    constructor(conclusionPrinciple: string, strokeOnly: boolean) {
         super("", "");
         this.conclusionPrinciple = conclusionPrinciple;
         this.strokeOnly = strokeOnly;
