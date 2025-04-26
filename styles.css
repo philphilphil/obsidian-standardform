@@ -1,36 +1,76 @@
 .block-language-standardform table {
-    border-collapse: collapse;
-    padding: 0;
-    margin: 0;
-}
-
-.block-language-standardform td {
-    min-width: 25px;
-    border: 0;
-    padding: 2px;
-    margin: 0;
-}
-
-.block-language-standardform .conclusion {
-    display: grid;
-    grid-template-columns: 30px max-content 30px;
-    grid-column-gap: 5px;
-    align-items: center;
-}
-
-.block-language-standardform .conclusionLong {
-    display: grid;
-    grid-template-columns: 60px max-content 60px;
-    grid-column-gap: 5px;
-    align-items: center;
-}
-
-.block-language-standardform .conclusion::before,
-.block-language-standardform .conclusion::after,
-.block-language-standardform .conclusionLong::before,
-.block-language-standardform .conclusionLong::after {
-    content: "";
-    display: block;
-    height: 1.5px;
-    background-color: currentColor;
-}
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .block-language-standardform td {
+	min-width: 25px;
+	border: 0;
+	padding: 2px;
+	margin: 0;
+  }
+  /* 1. Normal long line */
+  .block-language-standardform .conclusionLong {
+	width: 100px;
+	border-bottom: 2px solid #000;
+	margin-left: 0;
+  }
+  
+  /* 2. normal double line */
+  .block-language-standardform .conclusionDouble {
+	width: 100px;
+	border-bottom: 3px double #000;
+	margin-left: 0;
+  }
+  
+  /* 3. normal line with text */
+  .block-language-standardform .conclusionText {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	min-width: 70px;
+	margin-left: 0;
+  }
+  
+  .block-language-standardform .conclusionText::before,
+  .block-language-standardform .conclusionText::after {
+	content: "";
+	border-bottom: 2px solid #000;
+	width: 30px;
+  }
+  
+  /* 4. double line with text */
+  .block-language-standardform .conclusionDoubleText {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	min-width: 70px;
+	margin-left: 0;
+  }
+  
+  .block-language-standardform .conclusionDoubleText::before,
+  .block-language-standardform .conclusionDoubleText::after {
+	content: "";
+	border-bottom: 3px double #000;
+	width: 30px;
+  }
+  
+  /* shared between the double texts */
+  
+  .block-language-standardform .conclusionText::before,
+  .block-language-standardform .conclusionDoubleText::before {
+	margin-right: 5px;
+  }
+  
+  .block-language-standardform .conclusionText::after,
+  .block-language-standardform .conclusionDoubleText::after {
+	margin-left: 5px;
+  }
+  
+  .block-language-standardform .conclusionDoubleText span,
+  .block-language-standardform .conclusionText span{
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 0.95em;
+  }
