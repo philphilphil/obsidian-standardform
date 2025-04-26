@@ -28,5 +28,7 @@ not p
 ````
 ### Format
 - Identifiers must end with either a colon (`:`) or a period (`.`), such as `P1:`, `C1.`, or `Something:`.
+  - If you want to use a colon or period in your premisse or conclusion text, it needs to be escaped with a backslash: `Some text\. More text`.
 - Identifiers can be ommited.
 - Conclusion lines can be written either as `-- any text --` or simply `--` to create a line without text.
+  - To indicate a inductive inference,  `==` can be used to draw a double line (also works with `== text ==`)
