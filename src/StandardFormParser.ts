@@ -6,8 +6,7 @@ class StandardFormParser {
 	readonly dividerPattern = /(--|==)\s*(.*?)\s*(?:--|==)/;
 
 	parse(codeblock_content: string): Promise<StandardFormConstruction> {
-		const sfc: StandardFormConstruction = new StandardFormConstruction();
-
+		const sfc = new StandardFormConstruction();
 		const lines = codeblock_content.split('\n').map(line => line.trim());
 
 		for (const line of lines) {
@@ -20,10 +19,10 @@ class StandardFormParser {
 			else if (line.trim() == "==") {
 				sfc.elements.push(new ConclusionDivider(DividerType.DoubleLine));
 			} else if ((match = line.match(this.dividerPattern))) {
-				console.log(`Matched divider: ${match[1]}`);
-				console.log(`Matched text: ${match[2]}`);
-				const dividerType = match[1];  // eg "--" or "=="
-				const conclusionPrinciple = match[2];  // eg "KS(P1, P2)"
+				const dividerType = match[1];  // "--" or "=="
+				const conclusionPrinciple = match[2];  // eg. "KS(P1, P2)"
+
+				//console.log(`Matched divider: ${dividerType} ${conclusionPrinciple}`);
 
 				if (dividerType == "--") {
 					sfc.elements.push(new ConclusionDivider(DividerType.TextLine, conclusionPrinciple));
@@ -36,13 +35,12 @@ class StandardFormParser {
 				//console.log(`Matched premisse: ${type} ${text}`);
 
 				// if text is empty, but type is filled, a dot or colon is used in the text without a premise
+				// in this case we want to submit the type as text
 				if (text == "" && type != "") {
-					//submit type as text
 					sfc.elements.push(new Argument("", type));
-					continue;
+				} else {
+					sfc.elements.push(new Argument(type, text));
 				}
-
-				sfc.elements.push(new Argument(type, text));
 			}
 			else {
 				console.log(`Line not recognized: ${line}`);
