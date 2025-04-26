@@ -9,11 +9,11 @@ Perfect for philosophy, logic, and formal notation.
 To enable parsing, code blocks have to be specified as "standardform" language.
 ````markdown
 ```standardform
-1: If someone is a programmer, then they prefer tools that support Markdown.
-2: If someone prefers tools that support Markdown, then they enjoy using Obsidian.
+1. If someone is a programmer, then they prefer tools that support Markdown.
+2. If someone prefers tools that support Markdown, then they enjoy using Obsidian.
  -- CI (1, 2) --
 IC: If someone is a programmer, then they enjoy using Obsidian.
-3: Phil is a programmer.
+3. Phil is a programmer.
 -- MP (IC, 3) --
 C: Phil enjoys using Obsidian.
 ```
