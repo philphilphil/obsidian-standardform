@@ -2,7 +2,7 @@ import { Argument, ConclusionDivider, DividerType, StandardFormConstruction } fr
 
 
 class StandardFormParser {
-	readonly premissePattern = /(.*?[.:])?\s*(.*)/;
+	readonly premissePattern = /(.*?(?<!\\)[.:])?\s*(.*)/;
 	readonly dividerPattern = /(--|==)\s*(.*?)\s*(?:--|==)/;
 
 	parse(codeblock_content: string): Promise<StandardFormConstruction> {
@@ -22,7 +22,7 @@ class StandardFormParser {
 				const dividerType = match[1];  // "--" or "=="
 				const conclusionPrinciple = match[2];  // eg. "KS(P1, P2)"
 
-				//console.log(`Matched divider: ${dividerType} ${conclusionPrinciple}`);
+				//console.log(`Divider: ${dividerType} ConclusionPrinciple: ${conclusionPrinciple}`);
 
 				if (dividerType == "--") {
 					sfc.elements.push(new ConclusionDivider(DividerType.TextLine, conclusionPrinciple));
@@ -32,7 +32,7 @@ class StandardFormParser {
 			} else if ((match = line.match(this.premissePattern))) {
 				const type = match[1] ?? "";  // eg. "P1:"
 				const text = match[2];  // Sentence following "P1:"
-				//console.log(`Matched premisse: ${type} ${text}`);
+				//console.log(`Type: ${type} Text: ${text}`);
 
 				// if text is empty, but type is filled, a dot or colon is used in the text without a premise
 				// in this case we want to submit the type as text

@@ -25,6 +25,9 @@ class StandardFormElement extends MarkdownRenderChild {
 					tr.createEl("td", { text: el.label });
 				}
 
+				// remove escape backslashes
+				el.text = el.text.split("\\.").join(".").split("\\:").join(":");
+
 				tr.createEl("td", { text: el.text });
 			} else if (el instanceof ConclusionDivider) {
 				if (anyLabel) {
