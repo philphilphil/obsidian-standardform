@@ -1,7 +1,7 @@
 {
 	"id": "standardform",
 	"name": "StandardForm",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"minAppVersion": "0.15.0",
 	"description": "Transforms code blocks with Standard Form logical syntax into clean, styled renderings. Perfect for philosophy, logic, and argument reconstructions.",
 	"author": "Phil Baum",
