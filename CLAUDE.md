@@ -11,11 +11,9 @@ Obsidian community plugin that registers a markdown code-block processor for the
 - `make dev` (or `npm run dev`) — esbuild watch build, emits `main.js` in the repo root with inline sourcemaps.
 - `make build` (or `npm run build`) — typecheck (`tsc -noEmit -skipLibCheck`) then production esbuild (minified, no sourcemaps).
 - `make release` — guards on clean tree + unused tag, then pushes HEAD and tags `<manifest.version>`. The push of the tag triggers `.github/workflows/release.yml`, which rebuilds, attests, and publishes a GitHub release with `main.js`, `manifest.json`, `styles.css`. The workflow fails the build if the tag does not exactly match `manifest.json`'s `version`, so bump the manifest before tagging.
-- `npm version <patch|minor|major>` runs `version-bump.mjs`, which writes the new version into `manifest.json` and adds an entry to `versions.json` mapping the new version → existing `minAppVersion`.
+- Version bumps are manual: edit `manifest.json`'s `version`, then add a matching `{ "<new version>": "<minAppVersion>" }` entry to `versions.json` so Obsidian can match plugin versions to compatible app versions. Commit both, then `make release`.
 
 - `make test` (or `npm test`) — runs the Vitest suite under happy-dom. `npm run test:watch` for watch mode. Tests live in `test/` and import the plugin sources directly; `obsidian` is aliased to a thin mock (`test/__mocks__/obsidian.ts`) and the Obsidian-specific `createEl` / `createDiv` HTMLElement helpers are polyfilled in `test/setup.ts`.
-
-`tabletest.html` is a static HTML sandbox for eyeballing the table styling outside of Obsidian.
 
 ## Architecture
 
@@ -36,4 +34,4 @@ Styling lives in `styles.css` at the repo root (Obsidian loads it automatically 
 
 - Identifier/label must end with `.` or `:` (`P1.`, `C:`, `IC:`). Backslash-escape (`\.`, `\:`) to use these punctuation marks inside premise text.
 - `--` / `-- text --` = single horizontal rule (deductive). `==` / `== text ==` = double rule (inductive).
-- Unrecognized lines are logged to console and silently dropped.
+- Unrecognized lines are silently dropped.

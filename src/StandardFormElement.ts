@@ -1,5 +1,5 @@
 import { MarkdownRenderChild } from "obsidian";
-import { Argument, ConclusionDivider, StandardFormConstruction } from "./StandardFormConstruction";
+import { Argument, ConclusionDivider, DividerType, StandardFormConstruction } from "./StandardFormConstruction";
 
 class StandardFormElement extends MarkdownRenderChild {
 	constructor(
@@ -37,16 +37,16 @@ class StandardFormElement extends MarkdownRenderChild {
 
 				const td = tr.createEl("td");
 				switch (el.dividerType) {
-					case 0: // Line
+					case DividerType.Line:
 						td.createDiv({ cls: "conclusionLong" });
 						break;
-					case 1: // DoubleLine
-						td.createDiv({ cls: "conclusionDouble" }); 
+					case DividerType.DoubleLine:
+						td.createDiv({ cls: "conclusionDouble" });
 						break;
-					case 2: // TextLine
+					case DividerType.TextLine:
 						td.createDiv({ text: el.text, cls: "conclusionText" });
 						break;
-					case 3: // DoubleTextLine
+					case DividerType.DoubleTextLine:
 						td.createDiv({ text: el.text, cls: "conclusionDoubleText" });
 						break;
 				}

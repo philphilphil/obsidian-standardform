@@ -7,17 +7,13 @@
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"test": "vitest run",
-		"test:watch": "vitest",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"test:watch": "vitest"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^16.11.6",
-		"@typescript-eslint/eslint-plugin": "5.29.0",
-		"@typescript-eslint/parser": "5.29.0",
-		"builtin-modules": "3.3.0",
+		"@types/node": "^18.19.0",
 		"esbuild": "0.17.3",
 		"happy-dom": "^20.9.0",
 		"obsidian": "latest",
