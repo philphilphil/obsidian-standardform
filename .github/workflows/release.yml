@@ -45,5 +45,5 @@ jobs:
 
           gh release create "$tag" \
             --title="$tag" \
-            --notes="Initial community release." \
+            --notes="tbd" \
             main.js manifest.json styles.css
