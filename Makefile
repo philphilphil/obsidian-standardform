@@ -1,10 +1,13 @@
-.PHONY: dev build release
+.PHONY: dev build test release
 
 dev:
 	npm run dev
 
 build:
 	npm run build
+
+test:
+	npm test
 
 # Tag HEAD with the version in manifest.json and push it. The push triggers
 # the release workflow on GitHub, which builds, attests, and publishes.

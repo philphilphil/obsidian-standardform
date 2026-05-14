@@ -21,14 +21,15 @@ class StandardFormElement extends MarkdownRenderChild {
 			const tr = table.createEl("tr");
 
 			if (el instanceof Argument) {
+				// remove escape backslashes from both label and text
+				const unescape = (s: string) =>
+					s.split("\\.").join(".").split("\\:").join(":");
+
 				if (anyLabel) {
-					tr.createEl("td", { text: el.label });
+					tr.createEl("td", { text: unescape(el.label) });
 				}
 
-				// remove escape backslashes
-				el.text = el.text.split("\\.").join(".").split("\\:").join(":");
-
-				tr.createEl("td", { text: el.text });
+				tr.createEl("td", { text: unescape(el.text) });
 			} else if (el instanceof ConclusionDivider) {
 				if (anyLabel) {
 					tr.createEl("td");

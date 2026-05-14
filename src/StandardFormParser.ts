@@ -3,7 +3,7 @@ import { Argument, ConclusionDivider, DividerType, StandardFormConstruction } fr
 
 class StandardFormParser {
 	readonly premissePattern = /(.*?(?<!\\)[.:])?\s*(.*)/;
-	readonly dividerPattern = /(--|==)\s*(.*?)\s*(?:--|==)/;
+	readonly dividerPattern = /^(--|==)\s*(.*?)\s*(?:--|==)$/;
 
 	parse(codeblock_content: string): Promise<StandardFormConstruction> {
 		const sfc = new StandardFormConstruction();
@@ -13,6 +13,9 @@ class StandardFormParser {
 			let match;
 			//console.log(`Line: ${line}`);
 
+			if (line === "") {
+				continue;
+			}
 			if (line.trim() == "--") {
 				sfc.elements.push(new ConclusionDivider(DividerType.Line));
 			}
